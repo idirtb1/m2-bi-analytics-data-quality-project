@@ -1,0 +1,79 @@
+{
+    "terms": [
+        {
+            "term": "Transaction",
+            "definition": "Échange commercial d'un produit contre un paiement monétaire.",
+            "domain": "Ventes"
+        },
+        {
+            "term": "Prix Unitaire",
+            "definition": "Le prix d'un seul exemplaire du produit, avant toute remise. Doit être strictement positif.",
+            "domain": "Finance"
+        },
+        {
+            "term": "Montant Total",
+            "definition": "La somme totale payée pour la transaction. Doit être égale au Prix Unitaire multiplié par la Quantité.",
+            "domain": "Finance"
+        },
+        {
+            "term": "Doublon de Transaction",
+            "definition": "Deux enregistrements ou plus partageant le même Transaction_ID, ce qui est invalide dans le système cible.",
+            "domain": "Qualité de Données"
+        },
+        {
+            "term": "Client Actif",
+            "definition": "Un client ayant effectué au moins une transaction valide au cours des 12 derniers mois.",
+            "domain": "Marketing"
+        },
+        {
+            "term": "Moyen de Paiement",
+            "definition": "La méthode utilisée pour régler la transaction (Carte, Espèces, PayPal).",
+            "domain": "Finance"
+        },
+        {
+            "term": "Complétude",
+            "definition": "Mesure du pourcentage de champs non vides dans un jeu de données.",
+            "domain": "Qualité de Données"
+        },
+        {
+            "term": "Cohérence",
+            "definition": "Mesure du respect des règles logiques entre les attributs (ex: Total = Prix * Qté).",
+            "domain": "Qualité de Données"
+        },
+        {
+            "term": "Unicité",
+            "definition": "Règle stipulant que chaque entité (ex: Transaction) doit être représentée une seule fois dans le système.",
+            "domain": "Qualité de Données"
+        },
+        {
+            "term": "Validité",
+            "definition": "Conformité des données aux formats, types et plages de valeurs définis (ex: Prix > 0).",
+            "domain": "Qualité de Données"
+        },
+        {
+            "term": "Exactitude",
+            "definition": "Degré auquel les données reflètent correctement la réalité (ex: Orthographe correcte des villes).",
+            "domain": "Qualité de Données"
+        },
+        {
+            "term": "Actualité",
+            "definition": "Mesure de la fraîcheur des données et de leur pertinence temporelle.",
+            "domain": "Qualité de Données"
+        },
+        {
+            "term": "Catégorie Produit",
+            "definition": "Classification marketing regroupant des produits similaires (ex: Électronique, Vêtements).",
+            "domain": "Ventes"
+        },
+        {
+            "term": "Score de Qualité",
+            "definition": "Indicateur agrégé calculé sur la moyenne des scores des 6 piliers de qualité.",
+            "domain": "Gouvernance"
+        },
+        {
+            "term": "Lineage",
+            "definition": "Traçabilité du cycle de vie de la donnée, de sa source à sa consommation finale.",
+            "domain": "Gouvernance"
+        }
+    ]
+}

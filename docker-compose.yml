@@ -1,0 +1,283 @@
+x-airflow-common: &airflow-common
+  image: apache/airflow:2.7.0-python3.10
+  environment:
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+    AIRFLOW__CORE__FERNET_KEY: ''
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'false'
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+    AIRFLOW__WEBSERVER__EXPOSE_CONFIG: 'true'
+    _PIP_ADDITIONAL_REQUIREMENTS: 'pandas numpy pymysql'
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ./scripts:/opt/airflow/scripts
+    - ./data:/opt/airflow/data
+    - ./reports:/opt/airflow/reports
+    - ./logs:/opt/airflow/logs
+  depends_on:
+    postgres:
+      condition: service_healthy
+
+services:
+  # Base de données MariaDB pour les données métier
+  mariadb:
+    image: mariadb:10.11
+    container_name: dq_mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: data_quality
+      MYSQL_USER: dq_user
+      MYSQL_PASSWORD: dq_password
+    ports:
+      - "3307:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d
+    networks:
+      - dq_network
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # PostgreSQL pour Airflow
+  postgres:
+    image: postgres:13
+    container_name: dq_postgres
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - dq_network
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "airflow" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Airflow Webserver
+  airflow-webserver:
+    <<: *airflow-common
+    container_name: dq_airflow_webserver
+    command: webserver
+    ports:
+      - "8080:8080"
+    networks:
+      - dq_network
+    healthcheck:
+      test: [ "CMD", "curl", "--fail", "http://localhost:8080/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    restart: always
+
+  # Airflow Scheduler
+  airflow-scheduler:
+    <<: *airflow-common
+    container_name: dq_airflow_scheduler
+    command: scheduler
+    networks:
+      - dq_network
+    restart: always
+
+  # Airflow Init (initialisation)
+  airflow-init:
+    <<: *airflow-common
+    container_name: dq_airflow_init
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        airflow db init
+        airflow users create \
+          --username admin \
+          --password admin \
+          --firstname Admin \
+          --lastname User \
+          --role Admin \
+          --email admin@example.com
+    networks:
+      - dq_network
+    restart: "no"
+
+  # Jupyter Lab
+  jupyter:
+    image: jupyter/scipy-notebook:latest
+    container_name: dq_jupyter
+    restart: always
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/home/jovyan/notebooks
+      - ./data:/home/jovyan/data
+      - ./scripts:/home/jovyan/scripts
+    depends_on:
+      - mariadb
+    networks:
+      - dq_network
+    command: start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''
+
+  # =====================================================
+  # OPENMETADATA - DATA GOVERNANCE (Phase 6)
+  # =====================================================
+
+  # Elasticsearch pour OpenMetadata
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.16.3
+    container_name: dq_elasticsearch
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    networks:
+      - dq_network
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -s http://localhost:9200/_cluster/health | grep -vq red" ]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+
+  # PostgreSQL pour OpenMetadata
+  openmetadata-postgres:
+    image: postgres:13
+    container_name: dq_openmetadata_postgres
+    environment:
+      POSTGRES_USER: openmetadata
+      POSTGRES_PASSWORD: openmetadata
+      POSTGRES_DB: openmetadata_db
+    volumes:
+      - openmetadata_data:/var/lib/postgresql/data
+    networks:
+      - dq_network
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "openmetadata" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # OpenMetadata Server
+  openmetadata-server:
+    image: openmetadata/server:1.2.0
+    container_name: dq_openmetadata
+    environment:
+      OPENMETADATA_CLUSTER_NAME: "data-quality-cluster"
+      SERVER_HOST_API_URL: http://127.0.0.1:8585/api
+      SERVER_ADMIN_PORT: 8586
+      SERVER_PORT: 8585
+      DB_DRIVER_CLASS: org.postgresql.Driver
+      DB_SCHEME: postgresql
+      DB_HOST: openmetadata-postgres
+      DB_PORT: 5432
+      DB_USER: openmetadata
+      DB_USER_PASSWORD: openmetadata
+      OM_DATABASE: openmetadata_db
+      ELASTICSEARCH_HOST: elasticsearch
+      ELASTICSEARCH_PORT: 9200
+      ELASTICSEARCH_SCHEME: http
+      AUTHORIZER_CLASS_NAME: org.openmetadata.service.security.NoopAuthorizer
+      AUTHORIZER_ADMIN_PRINCIPALS: "[admin]"
+      AUTHORIZER_INGESTION_PRINCIPALS: "[ingestion-bot]"
+      AUTHORIZER_PRINCIPAL_DOMAIN: "open-metadata.org"
+      AUTHENTICATION_PROVIDER: no-auth
+    ports:
+      - "8585:8585"
+      - "8586:8586"
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+      openmetadata-postgres:
+        condition: service_healthy
+    networks:
+      - dq_network
+    entrypoint: >
+      /bin/bash -c "
+        cd /opt/openmetadata &&
+        ./bootstrap/bootstrap_storage.sh migrate-all &&
+        /openmetadata-start.sh
+      "
+    restart: always
+
+  # =====================================================
+  # APACHE SUPERSET - DATA QUALITY MONITORING (Phase 5)
+  # =====================================================
+
+  # Redis pour le cache Superset
+  redis:
+    image: redis:7-alpine
+    container_name: dq_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - dq_network
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Apache Superset
+  superset:
+    image: apache/superset:3.1.0
+    container_name: dq_superset
+    restart: always
+    environment:
+      SUPERSET_SECRET_KEY: "dq_pipeline_secret_key_2026"
+      SUPERSET_LOAD_EXAMPLES: "no"
+      DATABASE_DB: superset
+      DATABASE_HOST: postgres
+      DATABASE_PASSWORD: airflow
+      DATABASE_USER: airflow
+      DATABASE_PORT: 5432
+      DATABASE_DIALECT: postgresql
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    ports:
+      - "8088:8088"
+    volumes:
+      - superset_data:/app/superset_home
+      - ./scripts/superset_init.sh:/app/superset_init.sh
+    depends_on:
+      redis:
+        condition: service_healthy
+      mariadb:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    networks:
+      - dq_network
+    command: >
+      bash -c "
+        pip install mysqlclient pymysql &&
+        superset db upgrade &&
+        superset fab create-admin --username admin --firstname Admin --lastname User --email admin@dq.com --password admin 2>/dev/null || true &&
+        superset init &&
+        superset run -h 0.0.0.0 -p 8088 --with-threads
+      "
+
+volumes:
+  mariadb_data:
+  postgres_data:
+  openmetadata_data:
+  elasticsearch_data:
+  redis_data:
+  superset_data:
+
+
+networks:
+  dq_network:
+    driver: bridge

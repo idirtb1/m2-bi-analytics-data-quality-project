@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Great Expectations - Data Docs</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #1a1a2e; color: #eee; padding: 20px; }
+        .header { text-align: center; padding: 30px; background: linear-gradient(135deg, #16213e, #0f3460); border-radius: 12px; margin-bottom: 30px; }
+        .header h1 { font-size: 2em; color: #e94560; }
+        .header p { margin-top: 10px; color: #aaa; }
+        .kpi-bar { display: flex; gap: 20px; justify-content: center; margin: 20px 0; }
+        .kpi { background: #16213e; padding: 20px 30px; border-radius: 10px; text-align: center; }
+        .kpi .value { font-size: 2em; font-weight: bold; color: #e94560; }
+        .kpi .label { color: #888; font-size: 0.9em; margin-top: 5px; }
+        .pillar-card { background: #16213e; border-radius: 10px; padding: 20px; margin-bottom: 20px; }
+        .pillar-card h3 { color: #e94560; margin-bottom: 10px; }
+        .pillar-card .score { color: #aaa; font-weight: normal; font-size: 0.9em; }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #0f3460; padding: 10px; text-align: left; }
+        td { padding: 10px; border-bottom: 1px solid #333; }
+        tr.pass td { color: #4caf50; }
+        tr.fail td { color: #f44336; }
+        td.status { font-weight: bold; text-align: right; }
+        .footer { text-align: center; color: #555; margin-top: 30px; padding: 20px; }
+        .progress-bar { width: 100%; height: 20px; background: #333; border-radius: 10px; overflow: hidden; margin: 15px 0; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #e94560, #4caf50); border-radius: 10px; transition: width 0.5s; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 Great Expectations - Data Docs</h1>
+        <p>Rapport de Validation Automatisée — retail_cleaned</p>
+        <p>Généré le 11/02/2026 à 17:35</p>
+    </div>
+    
+    <div class="kpi-bar">
+        <div class="kpi">
+            <div class="value">13,792</div>
+            <div class="label">Lignes Analysées</div>
+        </div>
+        <div class="kpi">
+            <div class="value">15</div>
+            <div class="label">Expectations</div>
+        </div>
+        <div class="kpi">
+            <div class="value" style="color: #4caf50;">15</div>
+            <div class="label">Réussies</div>
+        </div>
+        <div class="kpi">
+            <div class="value" style="color: #4caf50;">100%</div>
+            <div class="label">Taux de Succès</div>
+        </div>
+    </div>
+    
+    <div class="progress-bar">
+        <div class="progress-fill" style="width: 100.0%;"></div>
+    </div>
+    
+    <h2 style="color: #e94560; margin: 20px 0;">📊 Détail par Pilier de Qualité</h2>
+    
+    
+        <div class="pillar-card">
+            <h3>✅ Complétude <span class="score">(3/3)</span></h3>
+            <table>
+                <thead><tr><th>Expectation</th><th>Résultat</th></tr></thead>
+                <tbody>
+            <tr class="pass">
+                <td>Transaction_ID non null</td>
+                <td class="status">PASS ✅</td>
+            </tr>
+            <tr class="pass">
+                <td>Product_Name non null</td>
+                <td class="status">PASS ✅</td>
+            </tr>
+            <tr class="pass">
+                <td>Transaction_Date non null</td>
+                <td class="status">PASS ✅</td>
+            </tr></tbody>
+            </table>
+        </div>
+        <div class="pillar-card">
+            <h3>✅ Exactitude <span class="score">(2/2)</span></h3>
+            <table>
+                <thead><tr><th>Expectation</th><th>Résultat</th></tr></thead>
+                <tbody>
+            <tr class="pass">
+                <td>Customer_ID format CUST-XXXX</td>
+                <td class="status">PASS ✅</td>
+            </tr>
+            <tr class="pass">
+                <td>Customer_Name longueur >= 2</td>
+                <td class="status">PASS ✅</td>
+            </tr></tbody>
+            </table>
+        </div>
+        <div class="pillar-card">
+            <h3>✅ Validité <span class="score">(4/4)</span></h3>
+            <table>
+                <thead><tr><th>Expectation</th><th>Résultat</th></tr></thead>
+                <tbody>
+            <tr class="pass">
+                <td>Unit_Price > 0</td>
+                <td class="status">PASS ✅</td>
+            </tr>
+            <tr class="pass">
+                <td>Quantity >= 1</td>
+                <td class="status">PASS ✅</td>
+            </tr>
+            <tr class="pass">
+                <td>Total_Amount >= 0</td>
+                <td class="status">PASS ✅</td>
+            </tr>
+            <tr class="pass">
+                <td>Payment_Method dans set FR</td>
+                <td class="status">PASS ✅</td>
+            </tr></tbody>
+            </table>
+        </div>
+        <div class="pillar-card">
+            <h3>✅ Unicité <span class="score">(2/2)</span></h3>
+            <table>
+                <thead><tr><th>Expectation</th><th>Résultat</th></tr></thead>
+                <tbody>
+            <tr class="pass">
+                <td>Transaction_ID unique</td>
+                <td class="status">PASS ✅</td>
+            </tr>
+            <tr class="pass">
+                <td>Nombre colonnes = 11</td>
+                <td class="status">PASS ✅</td>
+            </tr></tbody>
+            </table>
+        </div>
+        <div class="pillar-card">
+            <h3>✅ Cohérence <span class="score">(2/2)</span></h3>
+            <table>
+                <thead><tr><th>Expectation</th><th>Résultat</th></tr></thead>
+                <tbody>
+            <tr class="pass">
+                <td>Nb lignes >= 10 000</td>
+                <td class="status">PASS ✅</td>
+            </tr>
+            <tr class="pass">
+                <td>Product_Category dans set FR</td>
+                <td class="status">PASS ✅</td>
+            </tr></tbody>
+            </table>
+        </div>
+        <div class="pillar-card">
+            <h3>✅ Actualité <span class="score">(2/2)</span></h3>
+            <table>
+                <thead><tr><th>Expectation</th><th>Résultat</th></tr></thead>
+                <tbody>
+            <tr class="pass">
+                <td>Dates pas dans le futur</td>
+                <td class="status">PASS ✅</td>
+            </tr>
+            <tr class="pass">
+                <td>Dates après 2020-01-01</td>
+                <td class="status">PASS ✅</td>
+            </tr></tbody>
+            </table>
+        </div>
+    
+    <div class="footer">
+        <p>Great Expectations v1.11.3 — Pipeline Data Quality — ICOM Master 2 BI&A</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+{
+    "pipeline": {
+        "name": "Retail Data Quality Pipeline",
+        "nodes": [
+            {
+                "id": "source_csv",
+                "label": "Retail_Store_Sales.csv (Raw)",
+                "type": "dataset"
+            },
+            {
+                "id": "import_job",
+                "label": "Script Import (Python)",
+                "type": "process"
+            },
+            {
+                "id": "retail_raw",
+                "label": "Table MariaDB: retail_raw",
+                "type": "dataset"
+            },
+            {
+                "id": "cleaning_job",
+                "label": "Cleaning Pipeline (Python/Pandas)",
+                "type": "process"
+            },
+            {
+                "id": "retail_cleaned",
+                "label": "Table MariaDB: retail_cleaned",
+                "type": "dataset"
+            },
+            {
+                "id": "dq_checks",
+                "label": "Great Expectations & KPI SQL",
+                "type": "process"
+            },
+            {
+                "id": "quality_reports",
+                "label": "Quality Reports (Sweetviz/JSON)",
+                "type": "dataset"
+            },
+            {
+                "id": "superset",
+                "label": "Dashboard Superset",
+                "type": "visualization"
+            }
+        ],
+        "edges": [
+            {
+                "from": "source_csv",
+                "to": "import_job"
+            },
+            {
+                "from": "import_job",
+                "to": "retail_raw"
+            },
+            {
+                "from": "retail_raw",
+                "to": "cleaning_job"
+            },
+            {
+                "from": "cleaning_job",
+                "to": "retail_cleaned"
+            },
+            {
+                "from": "retail_cleaned",
+                "to": "dq_checks"
+            },
+            {
+                "from": "dq_checks",
+                "to": "quality_reports"
+            },
+            {
+                "from": "retail_cleaned",
+                "to": "superset"
+            },
+            {
+                "from": "quality_reports",
+                "to": "superset"
+            }
+        ]
+    }
+}

@@ -1,0 +1,86 @@
+{
+  "run_date": "2026-02-11T17:35:37.316421",
+  "dataset": "retail_cleaned",
+  "total_rows": 13792,
+  "total_expectations": 15,
+  "passed": 15,
+  "failed": 0,
+  "success_rate": "100.0%",
+  "details": [
+    {
+      "pillar": "Complétude",
+      "expectation": "Transaction_ID non null",
+      "result": "PASS"
+    },
+    {
+      "pillar": "Complétude",
+      "expectation": "Product_Name non null",
+      "result": "PASS"
+    },
+    {
+      "pillar": "Complétude",
+      "expectation": "Transaction_Date non null",
+      "result": "PASS"
+    },
+    {
+      "pillar": "Exactitude",
+      "expectation": "Customer_ID format CUST-XXXX",
+      "result": "PASS"
+    },
+    {
+      "pillar": "Exactitude",
+      "expectation": "Customer_Name longueur >= 2",
+      "result": "PASS"
+    },
+    {
+      "pillar": "Validité",
+      "expectation": "Unit_Price > 0",
+      "result": "PASS"
+    },
+    {
+      "pillar": "Validité",
+      "expectation": "Quantity >= 1",
+      "result": "PASS"
+    },
+    {
+      "pillar": "Validité",
+      "expectation": "Total_Amount >= 0",
+      "result": "PASS"
+    },
+    {
+      "pillar": "Validité",
+      "expectation": "Payment_Method dans set FR",
+      "result": "PASS"
+    },
+    {
+      "pillar": "Unicité",
+      "expectation": "Transaction_ID unique",
+      "result": "PASS"
+    },
+    {
+      "pillar": "Unicité",
+      "expectation": "Nombre colonnes = 11",
+      "result": "PASS"
+    },
+    {
+      "pillar": "Cohérence",
+      "expectation": "Nb lignes >= 10 000",
+      "result": "PASS"
+    },
+    {
+      "pillar": "Cohérence",
+      "expectation": "Product_Category dans set FR",
+      "result": "PASS"
+    },
+    {
+      "pillar": "Actualité",
+      "expectation": "Dates pas dans le futur",
+      "result": "PASS"
+    },
+    {
+      "pillar": "Actualité",
+      "expectation": "Dates après 2020-01-01",
+      "result": "PASS"
+    }
+  ]
+}

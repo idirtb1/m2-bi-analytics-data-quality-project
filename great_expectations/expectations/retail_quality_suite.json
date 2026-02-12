@@ -1,0 +1,97 @@
+{
+  "suite_name": "retail_quality_suite",
+  "created_at": "2026-02-11T17:35:37.317943",
+  "expectations_count": 15,
+  "expectations": [
+    {
+      "pillar": "Complétude",
+      "description": "Transaction_ID non null",
+      "type": "automated",
+      "last_result": "PASS"
+    },
+    {
+      "pillar": "Complétude",
+      "description": "Product_Name non null",
+      "type": "automated",
+      "last_result": "PASS"
+    },
+    {
+      "pillar": "Complétude",
+      "description": "Transaction_Date non null",
+      "type": "automated",
+      "last_result": "PASS"
+    },
+    {
+      "pillar": "Exactitude",
+      "description": "Customer_ID format CUST-XXXX",
+      "type": "automated",
+      "last_result": "PASS"
+    },
+    {
+      "pillar": "Exactitude",
+      "description": "Customer_Name longueur >= 2",
+      "type": "automated",
+      "last_result": "PASS"
+    },
+    {
+      "pillar": "Validité",
+      "description": "Unit_Price > 0",
+      "type": "automated",
+      "last_result": "PASS"
+    },
+    {
+      "pillar": "Validité",
+      "description": "Quantity >= 1",
+      "type": "automated",
+      "last_result": "PASS"
+    },
+    {
+      "pillar": "Validité",
+      "description": "Total_Amount >= 0",
+      "type": "automated",
+      "last_result": "PASS"
+    },
+    {
+      "pillar": "Validité",
+      "description": "Payment_Method dans set FR",
+      "type": "automated",
+      "last_result": "PASS"
+    },
+    {
+      "pillar": "Unicité",
+      "description": "Transaction_ID unique",
+      "type": "automated",
+      "last_result": "PASS"
+    },
+    {
+      "pillar": "Unicité",
+      "description": "Nombre colonnes = 11",
+      "type": "automated",
+      "last_result": "PASS"
+    },
+    {
+      "pillar": "Cohérence",
+      "description": "Nb lignes >= 10 000",
+      "type": "automated",
+      "last_result": "PASS"
+    },
+    {
+      "pillar": "Cohérence",
+      "description": "Product_Category dans set FR",
+      "type": "automated",
+      "last_result": "PASS"
+    },
+    {
+      "pillar": "Actualité",
+      "description": "Dates pas dans le futur",
+      "type": "automated",
+      "last_result": "PASS"
+    },
+    {
+      "pillar": "Actualité",
+      "description": "Dates après 2020-01-01",
+      "type": "automated",
+      "last_result": "PASS"
+    }
+  ]
+}

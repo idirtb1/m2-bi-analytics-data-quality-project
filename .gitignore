@@ -1,0 +1,14 @@
+# Docker Volumes & Databases (NEVER COMMIT THIS)
+openmetadata-docker/docker-volume/
+openmetadata-docker/db-data/
+*.sock
+*.log
+logs/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db

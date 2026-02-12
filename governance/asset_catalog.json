@@ -1,0 +1,104 @@
+{
+  "assets": [
+    {
+      "id": "retail_raw",
+      "name": "Retail Raw Data",
+      "type": "Table SQL",
+      "owner": "Data Engineering Team",
+      "description": "Données brutes des ventes retail contenant des transactions non nettoyées (valeurs manquantes, doublons, incohérences).",
+      "columns": [
+        {
+          "name": "Transaction_ID",
+          "type": "INT",
+          "description": "Identifiant de la transaction (peut contenir des doublons)."
+        },
+        {
+          "name": "Customer_ID",
+          "type": "VARCHAR",
+          "description": "Identifiant unique du client."
+        },
+        {
+          "name": "Product_Name",
+          "type": "VARCHAR",
+          "description": "Nom du produit vendu."
+        },
+        {
+          "name": "Unit_Price",
+          "type": "DECIMAL",
+          "description": "Prix unitaire du produit."
+        },
+        {
+          "name": "Quantity",
+          "type": "INT",
+          "description": "Quantité vendue."
+        },
+        {
+          "name": "Total_Amount",
+          "type": "DECIMAL",
+          "description": "Montant total (Prix * Quantité)."
+        },
+        {
+          "name": "Payment_Method",
+          "type": "VARCHAR",
+          "description": "Moyen de paiement utilisé."
+        }
+      ]
+    },
+    {
+      "id": "retail_cleaned",
+      "name": "Retail Cleaned Data",
+      "type": "Table SQL",
+      "owner": "Data Quality Team",
+      "description": "Données nettoyées et validées, prêtes pour l'analyse. Doublons supprimés, valeurs manquantes imputées.",
+      "columns": [
+        {
+          "name": "Transaction_ID",
+          "type": "INT",
+          "description": "Identifiant unique de la transaction."
+        },
+        {
+          "name": "Customer_ID",
+          "type": "VARCHAR",
+          "description": "Identifiant client validé."
+        },
+        {
+          "name": "Product_Name",
+          "type": "VARCHAR",
+          "description": "Nom du produit (imputé si manquant)."
+        },
+        {
+          "name": "Total_Amount",
+          "type": "DECIMAL",
+          "description": "Montant total recalculé et cohérent."
+        },
+        {
+          "name": "Unit_Price",
+          "type": "DECIMAL",
+          "description": "Prix unitaire validé (valeur absolue)."
+        },
+        {
+          "name": "Quantity",
+          "type": "INT",
+          "description": "Quantité validée (positive)."
+        },
+        {
+          "name": "City",
+          "type": "VARCHAR",
+          "description": "Ville standardisée."
+        },
+        {
+          "name": "Transaction_Date",
+          "type": "DATE",
+          "description": "Date de la transaction."
+        }
+      ]
+    },
+    {
+      "id": "quality_metrics",
+      "name": "Metriques de Qualite",
+      "type": "Table SQL",
+      "owner": "Data Governance",
+      "description": "Historique des scores de qualité par pilier et par colonne."
+    }
+  ]
+}

@@ -1,0 +1,308 @@
+﻿02:23:16,962 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.5.18
+02:23:16,962 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-core version 1.5.19
+02:23:16,962 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Versions of logback-core and logback-classic are different!
+02:23:16,964 |-INFO in ch.qos.logback.classic.util.ContextInitializer@51f116b8 - No custom configurators were discovered as a service.
+02:23:16,964 |-INFO in ch.qos.logback.classic.util.ContextInitializer@51f116b8 - Trying to configure with ch.qos.logback.classic.joran.SerializedModelConfigurator
+02:23:16,965 |-INFO in ch.qos.logback.classic.util.ContextInitializer@51f116b8 - Constructed configurator of type class ch.qos.logback.classic.joran.SerializedModelConfigurator
+02:23:16,976 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.scmo]
+02:23:16,977 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.scmo]
+02:23:16,991 |-INFO in ch.qos.logback.classic.util.ContextInitializer@51f116b8 - ch.qos.logback.classic.joran.SerializedModelConfigurator.configure() call lasted 13 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+02:23:16,991 |-INFO in ch.qos.logback.classic.util.ContextInitializer@51f116b8 - Trying to configure with ch.qos.logback.classic.util.DefaultJoranConfigurator
+02:23:16,992 |-INFO in ch.qos.logback.classic.util.ContextInitializer@51f116b8 - Constructed configurator of type class ch.qos.logback.classic.util.DefaultJoranConfigurator
+02:23:16,993 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+02:23:16,999 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [jar:file:/opt/openmetadata/libs/openmetadata-service-1.11.8.jar!/logback.xml]
+02:23:17,009 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@19d481b - URL [jar:file:/opt/openmetadata/libs/openmetadata-service-1.11.8.jar!/logback.xml] is not of type file
+02:23:17,155 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@1f97cf0d - value "INFO" substituted for "${BOOTSTRAP_LOG_LEVEL:-INFO}"
+02:23:17,157 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [STDOUT]
+02:23:17,157 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+02:23:17,167 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+02:23:17,205 |-INFO in ch.qos.logback.core.ConsoleAppender[STDOUT] - NOTE: Writing to the console can be slow. Try to avoid logging to the 
+02:23:17,205 |-INFO in ch.qos.logback.core.ConsoleAppender[STDOUT] - console in production environments, especially in high volume systems.
+02:23:17,205 |-INFO in ch.qos.logback.core.ConsoleAppender[STDOUT] - See also https://logback.qos.ch/codes.html#slowConsole
+02:23:17,205 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [file]
+02:23:17,205 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.FileAppender]
+02:23:17,212 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+02:23:17,226 |-INFO in ch.qos.logback.core.FileAppender[file] - File property is set to [./logs/openmetadata-operation.log]
+02:23:17,229 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache] to ERROR
+02:23:17,229 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [httpclient] to ERROR
+02:23:17,230 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [es.org.elasticsearch.client] to ERROR
+02:23:17,230 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [os.org.elasticsearch.client] to ERROR
+02:23:17,230 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.openmetadata.service.Entity] to ERROR
+02:23:17,230 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.openmetadata.service.apps.bundles.searchIndex] to INFO
+02:23:17,230 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@1f97cf0d - value "INFO" substituted for "${LOG_LEVEL:-INFO}"
+02:23:17,230 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to INFO
+02:23:17,230 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [STDOUT] to Logger[ROOT]
+02:23:17,231 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [file] to Logger[ROOT]
+02:23:17,231 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@140c9f39 - End of configuration.
+02:23:17,232 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@4d910fd6 - Registering current configuration as safe fallback point
+02:23:17,232 |-INFO in ch.qos.logback.classic.util.ContextInitializer@51f116b8 - ch.qos.logback.classic.util.DefaultJoranConfigurator.configure() call lasted 240 milliseconds. ExecutionStatus=DO_NOT_INVOKE_NEXT_IF_ANY
+
+   |||||||
+ ||||   ||||      ____
+||||     ||||    / __ \
+||||     ||||   | |  | | _ __    ___  _ __
+|||||   |||||   | |  | || '_ \  / _ \| '_ \
+|||||||||||||   | |__| || |_) ||  __/| | | |
+|||||||||||||    \____/ | .__/  \___||_| |_|
+||| ||||| |||    __  __ | |    _              _         _
+|||  |||  |||   |  \/  ||_|   | |            | |       | |
+|||   |   |||   | \  / |  ___ | |_  __ _   __| |  __ _ | |_  __ _
+|||       |||   | |\/| | / _ \| __|/ _` | / _` | / _` || __|/ _` |
+||| || || |||   | |  | ||  __/| |_| (_| || (_| || (_| || |_| (_| |
+||| ||||| |||   |_|  |_| \___| \__|\__,_| \__,_| \__,_| \__|\__,_|
+ |||||||||||
+   |||||||
+Migrating the OpenMetadata Schema.
+open-metadata-ops - Starting...
+open-metadata-ops - Added connection com.mysql.cj.jdbc.ConnectionImpl@2c06b113
+open-metadata-ops - Start completed.
+Using SearchRepository provider: DefaultSearchRepositoryProvider (priority: 0)
+Natural language search is not enabled
+ES Server version is running on: 8.11.4
+Successfully initialized new Elasticsearch Java API client
+Registered entity lifecycle handler: SearchIndexHandler with priority 10
+Successfully registered SearchIndexHandler for entity lifecycle events
+Registered entity lifecycle handler: TestSuitePipelineStatusHandler with priority 100
+SERVER_CHANGE_LOG table doesn't exist yet, will run all migrations including Flyway
+Following Migrations will be performed, with Force Migration : false
++---------+--------------------------+------------------------------------------------------------------------------------------------------------------+
+| Version | ConnectionType           | MigrationsFilePath                                                                                               |
++---------+--------------------------+------------------------------------------------------------------------------------------------------------------+
+| 0.0.0   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/flyway/com.mysql.cj.jdbc.Driver/v000__create_server_change_log.sql  |
+| 0.0.1   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/flyway/com.mysql.cj.jdbc.Driver/v001__create_db_connection_info.sql |
+| 0.0.2   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/flyway/com.mysql.cj.jdbc.Driver/v002__create_db_connection_info.sql |
+| 0.0.3   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/flyway/com.mysql.cj.jdbc.Driver/v003__create_db_connection_info.sql |
+| 0.0.4   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/flyway/com.mysql.cj.jdbc.Driver/v004__create_db_connection_info.sql |
+| 0.0.5   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/flyway/com.mysql.cj.jdbc.Driver/v005__create_db_connection_info.sql |
+| 0.0.6   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/flyway/com.mysql.cj.jdbc.Driver/v006__create_db_connection_info.sql |
+| 0.0.7   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/flyway/com.mysql.cj.jdbc.Driver/v007__create_db_connection_info.sql |
+| 0.0.8   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/flyway/com.mysql.cj.jdbc.Driver/v008__create_db_connection_info.sql |
+| 0.0.9   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/flyway/com.mysql.cj.jdbc.Driver/v009__create_db_connection_info.sql |
+| 0.0.10  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/flyway/com.mysql.cj.jdbc.Driver/v010__create_db_connection_info.sql |
+| 0.0.11  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/flyway/com.mysql.cj.jdbc.Driver/v011__create_db_connection_info.sql |
+| 0.0.12  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/flyway/com.mysql.cj.jdbc.Driver/v012__create_db_connection_info.sql |
+| 0.0.13  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/flyway/com.mysql.cj.jdbc.Driver/v013__create_db_connection_info.sql |
+| 0.0.14  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/flyway/com.mysql.cj.jdbc.Driver/v014__create_db_connection_info.sql |
+| 0.0.15  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/flyway/com.mysql.cj.jdbc.Driver/v015__update_server_change_log.sql  |
+| 1.1.0   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.1.0/mysql                                                  |
+| 1.1.1   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.1.1/mysql                                                  |
+| 1.1.2   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.1.2/mysql                                                  |
+| 1.1.5   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.1.5/mysql                                                  |
+| 1.1.6   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.1.6/mysql                                                  |
+| 1.1.7   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.1.7/mysql                                                  |
+| 1.2.0   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.2.0/mysql                                                  |
+| 1.2.1   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.2.1/mysql                                                  |
+| 1.2.3   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.2.3/mysql                                                  |
+| 1.2.4   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.2.4/mysql                                                  |
+| 1.3.0   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.3.0/mysql                                                  |
+| 1.3.1   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.3.1/mysql                                                  |
+| 1.3.2   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.3.2/mysql                                                  |
+| 1.3.3   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.3.3/mysql                                                  |
+| 1.4.0   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.4.0/mysql                                                  |
+| 1.4.2   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.4.2/mysql                                                  |
+| 1.4.4   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.4.4/mysql                                                  |
+| 1.4.5   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.4.5/mysql                                                  |
+| 1.4.6   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.4.6/mysql                                                  |
+| 1.4.7   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.4.7/mysql                                                  |
+| 1.5.0   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.5.0/mysql                                                  |
+| 1.5.6   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.5.6/mysql                                                  |
+| 1.5.7   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.5.7/mysql                                                  |
+| 1.5.9   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.5.9/mysql                                                  |
+| 1.5.11  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.5.11/mysql                                                 |
+| 1.5.15  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.5.15/mysql                                                 |
+| 1.6.0   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.6.0/mysql                                                  |
+| 1.6.2   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.6.2/mysql                                                  |
+| 1.6.3   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.6.3/mysql                                                  |
+| 1.6.7   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.6.7/mysql                                                  |
+| 1.7.0   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.7.0/mysql                                                  |
+| 1.7.1   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.7.1/mysql                                                  |
+| 1.7.2   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.7.2/mysql                                                  |
+| 1.7.4   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.7.4/mysql                                                  |
+| 1.8.0   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.8.0/mysql                                                  |
+| 1.8.1   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.8.1/mysql                                                  |
+| 1.8.2   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.8.2/mysql                                                  |
+| 1.8.4   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.8.4/mysql                                                  |
+| 1.8.5   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.8.5/mysql                                                  |
+| 1.8.7   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.8.7/mysql                                                  |
+| 1.8.8   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.8.8/mysql                                                  |
+| 1.8.9   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.8.9/mysql                                                  |
+| 1.9.0   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.9.0/mysql                                                  |
+| 1.9.2   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.9.2/mysql                                                  |
+| 1.9.5   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.9.5/mysql                                                  |
+| 1.9.6   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.9.6/mysql                                                  |
+| 1.9.9   | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.9.9/mysql                                                  |
+| 1.9.10  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.9.10/mysql                                                 |
+| 1.9.11  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.9.11/mysql                                                 |
+| 1.10.0  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.10.0/mysql                                                 |
+| 1.10.2  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.10.2/mysql                                                 |
+| 1.10.3  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.10.3/mysql                                                 |
+| 1.10.4  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.10.4/mysql                                                 |
+| 1.10.5  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.10.5/mysql                                                 |
+| 1.10.6  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.10.6/mysql                                                 |
+| 1.10.7  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.10.7/mysql                                                 |
+| 1.10.8  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.10.8/mysql                                                 |
+| 1.11.0  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.11.0/mysql                                                 |
+| 1.11.1  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.11.1/mysql                                                 |
+| 1.11.4  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.11.4/mysql                                                 |
+| 1.11.5  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.11.5/mysql                                                 |
+| 1.11.6  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.11.6/mysql                                                 |
+| 1.11.8  | com.mysql.cj.jdbc.Driver | /opt/openmetadata/./bootstrap/sql/migrations/native/1.11.8/mysql                                                 |
++---------+--------------------------+------------------------------------------------------------------------------------------------------------------+
+
+[MigrationWorkflow] WorkFlow Started
+[MigrationWorkFlow] Migration Run started for Version: 0.0.0, with Force Migration : false
+[MigrationWorkflow] Version : 0.0.0 Run Schema Changes Query Status
+[MigrationWorkflow] Version : 0.0.0 Run Post DDL Query Status
+[MigrationWorkFlow] Migration Run finished for Version: 0.0.0
+[MigrationWorkFlow] Migration Run started for Version: 0.0.1, with Force Migration : false
+[MigrationWorkflow] Version : 0.0.1 Run Schema Changes Query Status
+[MigrationWorkflow] Version : 0.0.1 Run Post DDL Query Status
+[MigrationWorkFlow] Migration Run finished for Version: 0.0.1
+[MigrationWorkFlow] Migration Run started for Version: 0.0.2, with Force Migration : false
+[MigrationWorkflow] Version : 0.0.2 Run Schema Changes Query Status
+[MigrationWorkflow] Version : 0.0.2 Run Post DDL Query Status
+[MigrationWorkFlow] Migration Run finished for Version: 0.0.2
+[MigrationWorkFlow] Migration Run started for Version: 0.0.3, with Force Migration : false
+[MigrationWorkflow] Version : 0.0.3 Run Schema Changes Query Status
+[MigrationWorkflow] Version : 0.0.3 Run Post DDL Query Status
+[MigrationWorkFlow] Migration Run finished for Version: 0.0.3
+[MigrationWorkFlow] Migration Run started for Version: 0.0.4, with Force Migration : false
+[MigrationWorkflow] Version : 0.0.4 Run Schema Changes Query Status
+[MigrationWorkflow] Version : 0.0.4 Run Post DDL Query Status
+[MigrationWorkFlow] Migration Run finished for Version: 0.0.4
+[MigrationWorkFlow] Migration Run started for Version: 0.0.5, with Force Migration : false
+[MigrationWorkflow] Version : 0.0.5 Run Schema Changes Query Status
+[MigrationWorkflow] Version : 0.0.5 Run Post DDL Query Status
+[MigrationWorkFlow] Migration Run finished for Version: 0.0.5
+[MigrationWorkFlow] Migration Run started for Version: 0.0.6, with Force Migration : false
+[MigrationWorkflow] Version : 0.0.6 Run Schema Changes Query Status
+[MigrationWorkflow] Version : 0.0.6 Run Post DDL Query Status
+[MigrationWorkFlow] Migration Run finished for Version: 0.0.6
+[MigrationWorkFlow] Migration Run started for Version: 0.0.7, with Force Migration : false
+[MigrationWorkflow] Version : 0.0.7 Run Schema Changes Query Status
+[MigrationWorkflow] Version : 0.0.7 Run Post DDL Query Status
+[MigrationWorkFlow] Migration Run finished for Version: 0.0.7
+[MigrationWorkFlow] Migration Run started for Version: 0.0.8, with Force Migration : false
+[MigrationWorkflow] Version : 0.0.8 Run Schema Changes Query Status
+[MigrationWorkflow] Version : 0.0.8 Run Post DDL Query Status
+[MigrationWorkFlow] Migration Run finished for Version: 0.0.8
+[MigrationWorkFlow] Migration Run started for Version: 0.0.9, with Force Migration : false
+[MigrationWorkflow] Version : 0.0.9 Run Schema Changes Query Status
+[MigrationWorkflow] Version : 0.0.9 Run Post DDL Query Status
+[MigrationWorkFlow] Migration Run finished for Version: 0.0.9
+[MigrationWorkFlow] Migration Run started for Version: 0.0.10, with Force Migration : false
+[MigrationWorkflow] Version : 0.0.10 Run Schema Changes Query Status
+[MigrationWorkflow] Version : 0.0.10 Run Post DDL Query Status
+[MigrationWorkFlow] Migration Run finished for Version: 0.0.10
+[MigrationWorkFlow] Migration Run started for Version: 0.0.11, with Force Migration : false
+[MigrationWorkflow] Version : 0.0.11 Run Schema Changes Query Status
+[MigrationWorkflow] Version : 0.0.11 Run Post DDL Query Status
+[MigrationWorkFlow] Migration Run finished for Version: 0.0.11
+[MigrationWorkFlow] Migration Run started for Version: 0.0.12, with Force Migration : false
+[MigrationWorkflow] Version : 0.0.12 Run Schema Changes Query Status
+[MigrationWorkflow] Version : 0.0.12 Run Post DDL Query Status
+[MigrationWorkFlow] Migration Run finished for Version: 0.0.12
+[MigrationWorkFlow] Migration Run started for Version: 0.0.13, with Force Migration : false
+[MigrationWorkflow] Version : 0.0.13 Run Schema Changes Query Status
+[MigrationWorkflow] Version : 0.0.13 Run Post DDL Query Status
+[MigrationWorkFlow] Migration Run finished for Version: 0.0.13
+[MigrationWorkFlow] Migration Run started for Version: 0.0.14, with Force Migration : false
+[MigrationWorkflow] Version : 0.0.14 Run Schema Changes Query Status
+[MigrationWorkflow] Version : 0.0.14 Run Post DDL Query Status
+[MigrationWorkFlow] Migration Run finished for Version: 0.0.14
+[MigrationWorkFlow] Migration Run started for Version: 0.0.15, with Force Migration : false
+[MigrationWorkflow] Version : 0.0.15 Run Schema Changes Query Status
+[MigrationWorkflow] Version : 0.0.15 Run Post DDL Query Status
+[MigrationWorkFlow] Migration Run finished for Version: 0.0.15
+[MigrationWorkFlow] Migration Run started for Version: 1.1.0, with Force Migration : false
+[MigrationWorkflow] Version : 1.1.0 Run Schema Changes Query Status
+[MigrationWorkflow] Version : 1.1.0 Run Post DDL Query Status
+[MigrationWorkFlow] Migration Run finished for Version: 1.1.0
+[MigrationWorkFlow] Migration Run started for Version: 1.1.1, with Force Migration : false
+[MigrationWorkflow] Version : 1.1.1 Run Schema Changes Query Status
+[MigrationWorkflow] Version : 1.1.1 Run Post DDL Query Status
+[MigrationWorkFlow] Migration Run finished for Version: 1.1.1
+[MigrationWorkFlow] Migration Run started for Version: 1.1.2, with Force Migration : false
+[MigrationWorkflow] Version : 1.1.2 Run Schema Changes Query Status
+[MigrationWorkflow] Version : 1.1.2 Run Post DDL Query Status
+[MigrationWorkFlow] Migration Run finished for Version: 1.1.2
+[MigrationWorkFlow] Migration Run started for Version: 1.1.5, with Force Migration : false
+[MigrationWorkFlow] Migration Run finished for Version: 1.1.5
+Encountered Exception in MigrationWorkflow
+java.lang.RuntimeException: Failed to run sql: [ALTER TABLE test_connection_definition MODIFY COLUMN nameHash VARCHAR(256) COLLATE ascii_bin] due to [org.jdbi.v3.core.statement.UnableToExecuteStatementException: java.sql.SQLException: Error on rename of './openmetadata_db/#sql-1_d' to './openmetadata_db/test_connection_definition' (errno: 168 - Unknown (generic) error from engine) [statement:"ALTER TABLE test_connection_definition MODIFY COLUMN nameHash VARCHAR(256) COLLATE ascii_bin", arguments:{positional:{}, named:{}, finder:[]}]]
+	at org.openmetadata.service.migration.api.MigrationProcessImpl.performSqlExecutionAndUpdate(MigrationProcessImpl.java:144)
+	at org.openmetadata.service.migration.api.MigrationProcessImpl.runSchemaChanges(MigrationProcessImpl.java:101)
+	at org.openmetadata.service.migration.api.MigrationWorkflow.runSchemaChanges(MigrationWorkflow.java:376)
+	at org.openmetadata.service.migration.api.MigrationWorkflow.runMigrationWorkflows(MigrationWorkflow.java:341)
+	at org.openmetadata.service.util.OpenMetadataOperations.validateAndRunSystemDataMigrations(OpenMetadataOperations.java:2150)
+	at org.openmetadata.service.util.OpenMetadataOperations.migrate(OpenMetadataOperations.java:639)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2070)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2465)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2457)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2419)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2421)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at org.openmetadata.service.util.OpenMetadataOperations.main(OpenMetadataOperations.java:2253)
+Caused by: org.jdbi.v3.core.statement.UnableToExecuteStatementException: java.sql.SQLException: Error on rename of './openmetadata_db/#sql-1_d' to './openmetadata_db/test_connection_definition' (errno: 168 - Unknown (generic) error from engine) [statement:"ALTER TABLE test_connection_definition MODIFY COLUMN nameHash VARCHAR(256) COLLATE ascii_bin", arguments:{positional:{}, named:{}, finder:[]}]
+	at org.jdbi.v3.core.statement.SqlStatement.internalExecute(SqlStatement.java:1789)
+	at org.jdbi.v3.core.result.ResultProducers.lambda$returningUpdateCount$0(ResultProducers.java:48)
+	at org.jdbi.v3.core.statement.Update.execute(Update.java:69)
+	at org.jdbi.v3.core.statement.Update.execute(Update.java:57)
+	at org.jdbi.v3.core.Handle.execute(Handle.java:360)
+	at org.jdbi.v3.core.Handle.execute(Handle.java:373)
+	at org.openmetadata.service.migration.api.MigrationProcessImpl.performSqlExecutionAndUpdate(MigrationProcessImpl.java:130)
+	... 16 common frames omitted
+Caused by: java.sql.SQLException: Error on rename of './openmetadata_db/#sql-1_d' to './openmetadata_db/test_connection_definition' (errno: 168 - Unknown (generic) error from engine)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ServerPreparedStatement.serverExecute(ServerPreparedStatement.java:612)
+	at com.mysql.cj.jdbc.ServerPreparedStatement.executeInternal(ServerPreparedStatement.java:320)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:384)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.jdbi.v3.core.statement.SqlLoggerUtil.wrap(SqlLoggerUtil.java:31)
+	at org.jdbi.v3.core.statement.SqlStatement.internalExecute(SqlStatement.java:1787)
+	... 22 common frames omitted
+Failed to db migration due to 
+java.lang.RuntimeException: Failed to run sql: [ALTER TABLE test_connection_definition MODIFY COLUMN nameHash VARCHAR(256) COLLATE ascii_bin] due to [org.jdbi.v3.core.statement.UnableToExecuteStatementException: java.sql.SQLException: Error on rename of './openmetadata_db/#sql-1_d' to './openmetadata_db/test_connection_definition' (errno: 168 - Unknown (generic) error from engine) [statement:"ALTER TABLE test_connection_definition MODIFY COLUMN nameHash VARCHAR(256) COLLATE ascii_bin", arguments:{positional:{}, named:{}, finder:[]}]]
+	at org.openmetadata.service.migration.api.MigrationProcessImpl.performSqlExecutionAndUpdate(MigrationProcessImpl.java:144)
+	at org.openmetadata.service.migration.api.MigrationProcessImpl.runSchemaChanges(MigrationProcessImpl.java:101)
+	at org.openmetadata.service.migration.api.MigrationWorkflow.runSchemaChanges(MigrationWorkflow.java:376)
+	at org.openmetadata.service.migration.api.MigrationWorkflow.runMigrationWorkflows(MigrationWorkflow.java:341)
+	at org.openmetadata.service.util.OpenMetadataOperations.validateAndRunSystemDataMigrations(OpenMetadataOperations.java:2150)
+	at org.openmetadata.service.util.OpenMetadataOperations.migrate(OpenMetadataOperations.java:639)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2070)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2465)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2457)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2419)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2421)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at org.openmetadata.service.util.OpenMetadataOperations.main(OpenMetadataOperations.java:2253)
+Caused by: org.jdbi.v3.core.statement.UnableToExecuteStatementException: java.sql.SQLException: Error on rename of './openmetadata_db/#sql-1_d' to './openmetadata_db/test_connection_definition' (errno: 168 - Unknown (generic) error from engine) [statement:"ALTER TABLE test_connection_definition MODIFY COLUMN nameHash VARCHAR(256) COLLATE ascii_bin", arguments:{positional:{}, named:{}, finder:[]}]
+	at org.jdbi.v3.core.statement.SqlStatement.internalExecute(SqlStatement.java:1789)
+	at org.jdbi.v3.core.result.ResultProducers.lambda$returningUpdateCount$0(ResultProducers.java:48)
+	at org.jdbi.v3.core.statement.Update.execute(Update.java:69)
+	at org.jdbi.v3.core.statement.Update.execute(Update.java:57)
+	at org.jdbi.v3.core.Handle.execute(Handle.java:360)
+	at org.jdbi.v3.core.Handle.execute(Handle.java:373)
+	at org.openmetadata.service.migration.api.MigrationProcessImpl.performSqlExecutionAndUpdate(MigrationProcessImpl.java:130)
+	... 16 common frames omitted
+Caused by: java.sql.SQLException: Error on rename of './openmetadata_db/#sql-1_d' to './openmetadata_db/test_connection_definition' (errno: 168 - Unknown (generic) error from engine)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ServerPreparedStatement.serverExecute(ServerPreparedStatement.java:612)
+	at com.mysql.cj.jdbc.ServerPreparedStatement.executeInternal(ServerPreparedStatement.java:320)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:384)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.jdbi.v3.core.statement.SqlLoggerUtil.wrap(SqlLoggerUtil.java:31)
+	at org.jdbi.v3.core.statement.SqlStatement.internalExecute(SqlStatement.java:1787)
+	... 22 common frames omitted
